@@ -16,7 +16,6 @@ function App() {
       }
     )
       .then((res) => res.json())
-      // .then((data) => console.log(data));
       .then((data) => setJp2Price(data.usdPrice));
   }, []);
 
@@ -29,6 +28,7 @@ function App() {
           alt="logo"
         />
         <p>JP2 COIN: {jp2price}USD</p>
+        <p>nft contract: 0x20b57a5e4822b660fd5a558acd6a18bf91ac59a1</p>
       </header>
     </div>
   );
