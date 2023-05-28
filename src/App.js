@@ -2,11 +2,15 @@ import "./App.css";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [jp2price, setJp2Price] = useState(0);
+  const [price, setPrice] = useState(0);
+
+  // const contractAddress = "0x20b57a5e4822b660fd5a558acd6a18bf91ac59a1"; // jap paweł
+  // const contractAddress = "0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB"; // punks
+  const contractAddress = "0x8821BeE2ba0dF28761AffF119D66390D594CD280"; // degods
 
   useEffect(() => {
     fetch(
-      "https://api.public.cookie3.co/NftCollection/price/latest/0x20b57a5e4822b660fd5a558acd6a18bf91ac59a1",
+      "https://api.public.cookie3.co/NftCollection/price/" + contractAddress,
       {
         method: "GET",
         headers: {
@@ -16,7 +20,7 @@ function App() {
       }
     )
       .then((res) => res.json())
-      .then((data) => setJp2Price(data.usdPrice));
+      .then((data) => setPrice(data[0].usdPrice));
   }, []);
 
   return (
@@ -27,8 +31,8 @@ function App() {
           className="App-logo"
           alt="logo"
         />
-        <p>JP2 COIN: {jp2price}USD</p>
-        <p>nft contract: 0x20b57a5e4822b660fd5a558acd6a18bf91ac59a1</p>
+        <p>price: {price.toFixed(2)}USD</p>
+        <p>nft contract: {contractAddress}</p>
       </header>
     </div>
   );
