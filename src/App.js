@@ -27,12 +27,21 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img
-          src={"https://www.jpdlugi.org/assets/photos/jp2.png"}
+          // src={"https://www.jpdlugi.org/assets/photos/jp2.png"}
+          src={
+            "https://th.bing.com/th/id/R.f42b3e5003c043f69bda106b3b09b5ce?rik=9%2b0UKklJ0Sw%2f2A&pid=ImgRaw&r=0"
+          }
           className="App-logo"
           alt="logo"
         />
         <p>price: {price.toFixed(2)}USD</p>
         <p>nft contract: {contractAddress}</p>
+        <p>
+          powered by:{" "}
+          <a href="https://cookie3.co" alt="Cookie3">
+            Cookie3
+          </a>
+        </p>
       </header>
     </div>
   );
